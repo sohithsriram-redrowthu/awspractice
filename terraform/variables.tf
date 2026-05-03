@@ -1,11 +1,9 @@
-variable "aws_region" {
-  default = "us-east-1"
+variable "cluster_role_arn" {
+  description = "IAM Role ARN for EKS Cluster"
+  type        = string
 }
 
-variable "ami_id" {
-  description = "AMI ID for EC2"
-}
-
-variable "instance_type" {
-  default = "t2.micro"
+variable "node_role_arn" {
+  description = "IAM Role ARN for EKS Node Group"
+  type        = string
 }
