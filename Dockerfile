@@ -4,11 +4,12 @@ FROM python:3.9-slim
 # Set working directory
 WORKDIR /app
 
-# Copy files
-COPY requirements.txt .
+# Copy requirements first (better for caching)
+COPY app/requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY app.py .
+# Copy the application code
+COPY app/app.py .
 
 # Expose port
 EXPOSE 5000
