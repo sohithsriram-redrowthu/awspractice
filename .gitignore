@@ -14,3 +14,4 @@ crash.log
 # Ignore any sensitive files
 *.pem
 *.key
+ci-kubeconfig.yaml
