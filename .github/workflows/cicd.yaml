@@ -39,7 +39,7 @@ jobs:
 
         - name: Set up kubeconfig
           run: |
-            mkdir -p $HOME/ .kube  ###the workflow is trying to write to $HOME/.kube/config, but the directory ~/.kube doesn’t exist yet on the GitHub runner. By default, the runner’s home directory doesn’t have a .kube folder until you create it.
+            mkdir -p $HOME/.kube  ###the workflow is trying to write to $HOME/.kube/config, but the directory ~/.kube doesn’t exist yet on the GitHub runner. By default, the runner’s home directory doesn’t have a .kube folder until you create it.
             echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 --decode > $HOME/.kube/config
 
 
