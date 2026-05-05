@@ -56,3 +56,8 @@ jobs:
 
         - name: Deploy to EKS
           run: kubectl apply -f k8s-manifests/deployment.yaml
+
+        - name: Update image
+          run: |
+            kubectl set image deployment/myapp-deployment myapp-container=sohithsriram/myflaskapp:${{ github.sha }}
+            kubectl rollout status deployment/myapp-deployment

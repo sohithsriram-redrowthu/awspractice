@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: myapp-container
-        image: sohithsriram/myflaskapp:latest
+        image: sohithsriram/myflaskapp:${{ github.sha }}
         ports:
         - containerPort: 5000
