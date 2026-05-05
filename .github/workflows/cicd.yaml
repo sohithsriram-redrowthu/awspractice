@@ -35,7 +35,7 @@ jobs:
         needs: docker-build-push
         steps:
         - name: Checkout code
-          uses: actions/checkout@v3
+          uses: actions/checkout@v4
 
         - name: Set up kubeconfig
           run: echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 --decode > $HOME/.kube/config
