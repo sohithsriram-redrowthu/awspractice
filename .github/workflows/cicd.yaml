@@ -23,9 +23,13 @@ jobs:
                 username: ${{ secrets.DOCKER_USERNAME }}
                 password: ${{ secrets.DOCKER_PASSWORD }}
             - name: buildDocker image
-              run: docker build -t myapp:${{ github.sha }} .
+              run: docker build -t sohithsriram/myflaskapp:${{ github.sha }} .
+            - name: Docker Tag
+              run: docker tag sohithsriram/myflaskapp:${{ github.sha }} sohithsriram/myflaskapp:latest
             - name: Docker Push
-              run: docker push myapp:${{ github.sha }}
+              run: docker push sohithsriram/myflaskapp:${{ github.sha }}
+            - name : Docker push Latest
+              run: docker push sohithsriram/myflaskapp:latest
     deploy:
         runs-on: ubuntu-latest
         needs: docker-build-push
